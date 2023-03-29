@@ -1,12 +1,11 @@
-n = int(input())
-arr = list()
-for i in range(n):
-    x = int(input())
-    arr.append(x)
+# Напишите рекурсивную функцию sum(a, b), возвращающую сумму двух целых неотрицательных чисел. 
+# Из всех арифметических операций допускаются только +1 и -1. Также нельзя использовать циклы. 
 
-arr_count = list()
-for i in range(len(arr) - 1):
-    arr_count.append(arr[i - 1] + arr[i] + arr[i + 1])
-arr_count.append(arr[-2] + arr[-1] + arr[0])
+def sum_func(a, b):
+    if b == 0:
+        return a
+    return 1 + sum_func(a, b - 1)
 
-print(max(arr_count))
+number_a = int(input('Введите первое число: '))
+number_b = int(input('Введите второе число: '))
+print(sum_func(number_a, number_b))
