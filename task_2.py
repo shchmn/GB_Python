@@ -1,9 +1,15 @@
-# Определить индексы элементов массива (списка), значения которых принадлежат заданному диапазону 
-# (т.е. не меньше заданного минимума и не больше заданного максимума)
+# Напишите функцию print_operation_table(operation, num_rows=6, num_columns=6), которая принимает в качестве 
+# аргумента функцию, вычисляющую элемент по номеру строки и столбца. Аргументы num_rows и num_columns указывают 
+# число строк и столбцов таблицы, которые должны быть распечатаны. Нумерация строк и столбцов идет с единицы 
+# (подумайте, почему не с нуля). Примечание: бинарной операцией называется любая операция, у которой ровно два 
+# аргумента, как, например, у операции умножения. 
 
-list_1 = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
-min_number = int(input())
-max_number = int(input())
-for i in range(len(list_1)):
-    if min_number <= list_1[i] <= max_number:
-        print(i)
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    table = [[operation(i, j) for j in range(1, num_columns + 1)] for i in range(1, num_rows + 1)]
+
+    for i in range(num_rows):
+        for j in range(num_columns):
+            print(table[i][j], end=' ')
+        print()
+
+print_operation_table(lambda x, y: x * y)
